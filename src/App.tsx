@@ -1,14 +1,20 @@
-import './App.css'
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-
+import Home from "./pages/Home";
+import About from "./pages/About";
+import NotFound
+ from "./pages/NotFound";
+const App = () => {
   return (
-    <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
-  )
-}
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} /> 
+        </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
