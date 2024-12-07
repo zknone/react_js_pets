@@ -5,13 +5,9 @@ type fetchDataOptions = {
 }
 
 export const fetchData = async<T>(
-    endpoint: string, 
+    url: string, 
     options?: fetchDataOptions
 ): Promise<T> => {
-
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const url = `${endpoint}?apikey=${apiKey}`;
-    
     try{
         const response = await fetch(url, {
             method: options?.method || 'GET',
