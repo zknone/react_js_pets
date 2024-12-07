@@ -9,10 +9,9 @@ export const fetchData = async<T>(
     options?: fetchDataOptions
 ): Promise<T> => {
 
-    const apiKey = process.env.HARVARD_API_KEY;
+    const apiKey = import.meta.env.VITE_API_KEY;
     const url = `${endpoint}?apikey=${apiKey}`;
-
-
+    
     try{
         const response = await fetch(url, {
             method: options?.method || 'GET',
